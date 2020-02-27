@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="id">
     <?php $this->load->view('templates/head_loggedin'); ?>
     <body>
         <?php $this->load->view('templates/topbar_loggedin'); ?>
@@ -9,11 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="row">
             <div class="callout">
-                <h5>Permintaan Transkrip</h5>
+                <h1>Permintaan Transkrip</h1>
                 <form method="GET" action="/TranskripManage">
                     <div class="input-group">
-                        <span class="input-group-label">Cari NPM:</span>
-                        <input name="npm" class="input-group-field" type="text" placeholder="2013730013" maxlength="10" minlength="10"<?= $npmQuery === NULL ? '' : " value='$npmQuery'" ?>/>
+                        <label for="npm" class="input-group-label">Cari NPM:</label>
+                        <input id="npm" name="npm" class="input-group-field" type="text" placeholder="2013730013" maxlength="10" minlength="10"<?= $npmQuery === NULL ? '' : " value='$npmQuery'" ?>/>
                         <div class="input-group-button">
                             <input class="button" type="submit" value="Cari"/>
                         </div>
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?= isset($request->requestByNPM) ? $request->requestByNPM : '-' ?></td>
                                 <td>
                                     <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
-                                        <h5>Detail Permohonan #<?= $request->id ?></h5>
+                                        <h2>Detail Permohonan #<?= $request->id ?></h2>
                                         <table class="stack">
                                             <tbody>
                                                 <tr>
@@ -85,9 +85,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span aria-hidden="true">&times;</span>
                                         </button>                                        
                                     </div>
-                                    <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
+                                    <a aria-label="lihat detail permohonan" data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
                                     <div class="reveal" id="tolak<?= $request->id ?>" data-reveal>
-                                        <h5>Tolak Permohonan</h5>
+                                        <h2>Tolak Permohonan</h2>
                                         <form method="POST" action="/TranskripManage/answer">
                                             <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                                             <input type="hidden" name="id" value="<?= $request->id ?>"/>
@@ -105,9 +105,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <a data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
+                                    <a aria-label="tolak permohonan" data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
                                     <div class="reveal" id="cetak<?= $request->id ?>" data-reveal>
-                                        <h5>Cetak Permohonan</h5>
+                                        <h2>Cetak Permohonan</h2>
                                         <?php if ($request->requestByNPM !== NULL): ?>
                                             <a target="_blank" href="<?= sprintf($transkripURLs[$request->requestType], $request->requestByNPM) ?>">Klik untuk membuka DPS/LHS</a>
                                         <?php else: ?>
@@ -119,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <input type="hidden" name="answer" value="printed"/>
                                             <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                                             <label>Email penjawab:
-                                                <input type="text" value="<?= $answeredByEmail ?>" readonly="true"/>
+                                                <input type="text" value="<?= $answeredByEmail ?>" readonly/>
                                             </label>
                                             <label>Keterangan tambahan:
                                                 <input name="answeredMessage" class="input-group-field" type="text" required/>
@@ -131,9 +131,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <a data-open="cetak<?= $request->id ?>"><i class="fi-print"></i></a>
+                                    <a aria-label="cetak permohonan" data-open="cetak<?= $request->id ?>"><i class="fi-print"></i></a>
                                     <div class="reveal" id="hapus<?= $request->id ?>" data-reveal>
-                                        <h5>Hapus Permohonan</h5>
+                                        <h2>Hapus Permohonan</h2>
                                         <form method="POST" action="/TranskripManage/remove">
                                             <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                                             <input type="hidden" name="id" value="<?= $request->id ?>"/>
@@ -146,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <a data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
+                                    <a aria-label="hapus permohonan" data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

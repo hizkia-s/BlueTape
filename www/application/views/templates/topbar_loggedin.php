@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><div class="title-bar" data-responsive-toggle="navigation-menu" data-hide-for="medium">
-    <button class="menu-icon" type="button" data-toggle></button>
+    <button aria-label="tombol menu" class="menu-icon" type="button" data-toggle></button>
     <div class="title-bar-title"><img src="/public/img/logo.png" class="textsized" alt="B"/></div>
 </div>
 

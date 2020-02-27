@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="id">
     <?php $this->load->view('templates/head_loggedin'); ?>
     <body>
         <?php $this->load->view('templates/topbar_loggedin'); ?>
@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="row">
             <div class="callout">
-                <h5>Permohonan Perubahan Kuliah</h5>
+                <h1>Permohonan Perubahan Kuliah</h1>
                 <table class="stack">
                     <thead>
                         <tr>
@@ -30,11 +30,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?= $request->mataKuliahCode ?></td>
                                 <td><?= PerubahanKuliah_model::CHANGETYPE_TYPES[$request->changeType] ?></td>
                                 <td>
-                                    <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
-                                    <a target="_blank" href="/PerubahanKuliahManage/printview/<?= $request->id ?>"><i class="fi-print"></i></a>
-                                    <a data-open="konfirmasi<?= $request->id ?>"><i class="fi-like"></i></a>                                    
-                                    <a data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
-                                    <a data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
+                                    <a aria-label="lihat detail permohonan" data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
+                                    <a aria-label="cetak permohonan" target="_blank" href="/PerubahanKuliahManage/printview/<?= $request->id ?>"><i class="fi-print"></i></a>
+                                    <a aria-label="konfirmasi permohonan" data-open="konfirmasi<?= $request->id ?>"><i class="fi-like"></i></a>                                    
+                                    <a aria-label="tolak permohonan" data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
+                                    <a aria-label="hapus permohonan" data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php foreach ($requests as $request): ?>
 
             <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
-                <h5>Detail Permohonan #<?= $request->id ?></h5>
+                <h2>Detail Permohonan #<?= $request->id ?></h2>
                 <table class="stack">
                     <tbody>
                         <tr>
@@ -128,7 +128,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
             </div>
             <div class="reveal" id="konfirmasi<?= $request->id ?>" data-reveal>
-                <h5>Konfirmasi Permohonan</h5>
+                <h2>Konfirmasi Permohonan</h2>
                 <form method="POST" action="/PerubahanKuliahManage/answer">
                     <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                     <input type="hidden" name="id" value="<?= $request->id ?>"/>
@@ -147,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
             </div>        
             <div class="reveal" id="tolak<?= $request->id ?>" data-reveal>
-                <h5>Tolak Permohonan</h5>
+                <h2>Tolak Permohonan</h2>
                 <form method="POST" action="/PerubahanKuliahManage/answer">
                     <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                     <input type="hidden" name="id" value="<?= $request->id ?>"/>
@@ -166,7 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
             </div>
             <div class="reveal" id="hapus<?= $request->id ?>" data-reveal>
-                <h5>Hapus Permohonan</h5>
+                <h2>Hapus Permohonan</h2>
                 <form method="POST" action="/PerubahanKuliahManage/remove">
                     <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                     <input type="hidden" name="id" value="<?= $request->id ?>"/>

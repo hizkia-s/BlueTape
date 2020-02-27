@@ -1,23 +1,23 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="id">
     <?php $this->load->view('templates/script_foundation'); ?>
     <?php $this->load->view('templates/head_loggedin'); ?>
-	<?php $this->load->view('templates/flashmessage'); ?>
     <?php $this->load->helper('url'); ?>
     <body>
         <?php $this->load->view('templates/topbar_loggedin'); ?>
-
+        <?php $this->load->view('templates/flashmessage'); ?>
+        
         <div class="row">
 
             <div class="large-12 column callout">
-                <h5>Tambah Jadwal</h5>
+                <h1>Tambah Jadwal</h1>
                 <div class="large-4 columns">
                     <form method="POST" action="/EntriJadwalDosen/add">
                         <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
-                        Hari
-                        <select name="hari"> 
+                        <label for="hari">Hari</label>
+                        <select id="hari" name="hari"> 
                             <?php
                             $hariValue = 0;
                             foreach ($namaHari as $hari) {
@@ -29,29 +29,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             }
                             ?>
                         </select><br>
-                        Jam Mulai
-                        <select name="jam_mulai"> 
+                        <label for="jam_mulai">Jam Mulai</label>
+                        <select id="jam_mulai" name="jam_mulai"> 
                             <?php for ($i = 7; $i <= 16; $i++) { ?>
                                 <option value="<?php echo $i ?>"> <?php echo $i ?>:00 </option>
                             <?php } ?>
                         </select><br>
                         </div>
                         <div class=" large-4 columns">
-                            Durasi
-                            <select name="durasi"> 
+                            <label for="durasi">Durasi</label>
+                            <select id="durasi" name="durasi"> 
                                 <?php for ($i = 1; $i <= 9; $i++) { ?>
                                     <option value="<?php echo $i ?>"> <?php echo $i ?> jam </option>
                                 <?php } ?>
                             </select><br>
-                            Jenis  
-                            <select name="jenis_jadwal"> 
+                            <label for="jenis_jadwal">Jenis</label>
+                            <select id="jenis_jadwal" name="jenis_jadwal"> 
                                 <option value="konsultasi" style="background-color:yellow"> Konsultasi </option>
                                 <option value="terjadwal" style="background-color:green;color:white"> Terjadwal</option>
                                 <option value="kelas" style="background-color:white"> Kelas </option>
                             </select>
                         </div>
-                        <div class="large-4 columns">
-                            Label <input type="text" name="label_jadwal"><br>
+                        <div class="large-4 columns">   
+                            <label for="label_jadwal">Label</label>
+                            <input id="label_jadwal" type="text" name="label_jadwal"><br>
                             <input type="submit" class="button" value="Tambah">
                             </form>
                         </div>
@@ -59,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- ===================================================================== Pembentukan Tabel ============================================================================= -->
 
                 <div class="large-12 column callout">
-                    <h5>Daftar Jadwal</h5>
+                    <h1>Daftar Jadwal</h1>
                     <div class="table-scroll" id="jadwal_table">
                         <table border=1 style="border-color:black ; border-collapse:separate">
                             <tr> 
@@ -77,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 echo "<tr><td>" . $i . "-" . ($i + 1);
                                 $cellColID = 1;
                                 for ($j = 0; $j < 5; $j++) {
-                                    echo"<td align='center' id='cell" . $cellRowID . "-" . $cellColID . "'>" . "</td>";
+                                    echo"<td tabindex='0' align='center' id='cell" . $cellRowID . "-" . $cellColID . "'>" . "</td>";
                                     $cellColID++;
                                 }
                                 $cellRowID++;
@@ -116,6 +117,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         var $menuName = "#edit_menu<?php echo $dataHariIni->id ?>";
                                         $($menuName).foundation('open');
                                     });
+                                    $($cellLocation).keyup(function(e){
+                                        if(e.keyCode == 13){
+                                            var $menuName = "#edit_menu<?php echo $dataHariIni->id ?>";
+                                            $($menuName).foundation('open');
+                                        }
+                                    })
                                 </script>
                                 <?php
                             }
@@ -169,7 +176,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <button class="close-button" data-close aria-label="Close modal" type="button">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h5> Edit Jadwal </h5>
+                        <h2> Edit Jadwal </h2>
                         <form name="form<?php echo $dataHariIni->id ?>" method="POST" action="/EntriJadwalDosen/update/<?php echo $dataHariIni->id ?>">
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                             <input type="hidden" name="id_jadwal_parameter" value="<?php echo $dataHariIni->id ?>"> </a> <br>

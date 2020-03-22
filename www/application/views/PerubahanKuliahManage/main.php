@@ -30,11 +30,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <td><?= $request->mataKuliahCode ?></td>
                                 <td><?= PerubahanKuliah_model::CHANGETYPE_TYPES[$request->changeType] ?></td>
                                 <td>
-                                    <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
-                                    <a target="_blank" href="/PerubahanKuliahManage/printview/<?= $request->id ?>"><i class="fi-print"></i></a>
-                                    <a data-open="konfirmasi<?= $request->id ?>"><i class="fi-like"></i></a>                                    
-                                    <a data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
-                                    <a data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
+                                    <a aria-label="lihat detail permohonan <?= $request->requestByName ?>" data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
+                                    <a aria-label="cetak permohonan <?= $request->requestByName ?>" target="_blank" href="/PerubahanKuliahManage/printview/<?= $request->id ?>"><i class="fi-print"></i></a>
+                                    <a aria-label="konfirmasi permohonan <?= $request->requestByName ?>" data-open="konfirmasi<?= $request->id ?>"><i class="fi-like"></i></a>
+                                    <a aria-label="tolak permohonan <?= $request->requestByName ?>" data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
+                                    <a aria-label="hapus permohonan <?= $request->requestByName ?>" data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

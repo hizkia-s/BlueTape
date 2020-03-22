@@ -126,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
+                                        <a aria-label="lihat detail permohonan" data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <td><time datetime="<?= $request->answeredDateTime ?>"><?= $request->answeredDateString ?></time></td>
                                     <td><?= $request->answeredMessage ?></td>
                                     <td>
-                                        <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
+                                        <a aria-label="lihat detail permohonan <?= $request->requestByName ?>" data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

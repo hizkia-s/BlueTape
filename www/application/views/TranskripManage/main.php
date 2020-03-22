@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span aria-hidden="true">&times;</span>
                                         </button>                                        
                                     </div>
-                                    <a data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
+                                    <a aria-label="lihat detail permohonan <?= $request->requestByName ?>" data-open="detail<?= $request->id ?>"><i class="fi-eye"></i></a>
                                     <div class="reveal" id="tolak<?= $request->id ?>" data-reveal>
                                         <h5>Tolak Permohonan</h5>
                                         <form method="POST" action="/TranskripManage/answer">
@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <a data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
+                                    <a aria-label="tolak permohonan <?= $request->requestByName ?>" data-open="tolak<?= $request->id ?>"><i class="fi-dislike"></i></a>
                                     <div class="reveal" id="cetak<?= $request->id ?>" data-reveal>
                                         <h5>Cetak Permohonan</h5>
                                         <?php if ($request->requestByNPM !== NULL): ?>
@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <a data-open="cetak<?= $request->id ?>"><i class="fi-print"></i></a>
+                                    <a aria-label="cetak permohonan <?= $request->requestByName ?>" data-open="cetak<?= $request->id ?>"><i class="fi-print"></i></a>
                                     <div class="reveal" id="hapus<?= $request->id ?>" data-reveal>
                                         <h5>Hapus Permohonan</h5>
                                         <form method="POST" action="/TranskripManage/remove">
@@ -146,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <a data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
+                                    <a aria-label="hapus permohonan <?= $request->requestByName ?>" data-open="hapus<?= $request->id ?>"><i class="fi-trash"></i></a>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

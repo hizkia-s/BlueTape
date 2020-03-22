@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <body>
         <?php $this->load->view('templates/topbar_loggedin'); ?>
 
-        <div class="row">
+        <div id="mainContent" class="row">
 
             <div class="large-12 column callout">
                 <h5>Tambah Jadwal</h5>

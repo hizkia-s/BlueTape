@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <td><span class="<?= $request->labelClass ?> label"><?= $request->status ?></span></td>
                                     <td><time datetime="<?= $request->requestDateTime ?>"><?= $request->requestDateString ?></time></td>
                                     <td><?= $request->requestType ?></td>
-                                    <td><time datetime="<?= $request->answeredDateTime ?>"><?= $request->answeredDateString ?></td>
+                                    <td><time datetime="<?= $request->answeredDateTime ?>"><?= $request->answeredDateString ?></time></td>
                                     <td><?= $request->answeredMessage ?></td>
                                     <td>
                                         <div class="reveal" id="detail<?= $request->id ?>" data-reveal>

@@ -110,12 +110,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         $("#cell" + i + "-" +<?php echo $colIdx; ?>).remove();
                                     }
                                     $($cellLocation).html("<?php echo $dataHariIni->label ?>");
+                                    $($cellLocation).attr("tabindex", "0");
 
                                     //membuat cell-cell yang telah diwarnai jadi memunculkan pop-up untuk mengedit jadwal ketika diklik oleh mouse
                                     $(document).on("click", $cellLocation, function () {
                                         var $menuName = "#edit_menu<?php echo $dataHariIni->id ?>";
                                         $($menuName).foundation('open');
                                     });
+                                    
+                                    // membuat cell-cell dalam tabel dapat diakses menggunakan keyboard
+                                    $($cellLocation).keyup(function(e){
+                                        if(e.keyCode == 13){
+                                            var $menuName = "#edit_menu<?php echo $dataHariIni->id ?>";
+                                            $($menuName).foundation('open');
+                                        }
+                                    })
                                 </script>
                                 <?php
                             }

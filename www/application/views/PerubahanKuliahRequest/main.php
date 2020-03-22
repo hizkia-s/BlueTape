@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="large-12 column">
                 <div class="callout">
-                    <h5>Permohonan Baru</h5>
+                    <h1>Permohonan Baru</h1>
                     <form method="POST" action="/PerubahanKuliahRequest/add">
                         <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                         <div class="row">
@@ -93,7 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </form>
                 </div>
                 <div class="callout">
-                    <h5>Histori Permohonan</h5>
+                    <h1>Histori Permohonan</h1>
                     <table class="stack">
                         <thead>
                             <tr>
@@ -130,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php foreach ($requests as $request): ?>
 
             <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
-                <h5>Detail Permohonan #<?= $request->id ?></h5>
+                <h2>Detail Permohonan #<?= $request->id ?></h2>
                 <table class="stack">
                     <tbody>
                         <tr>

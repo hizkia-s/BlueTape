@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="medium-12 column">
                 <div class="callout">
-                    <h5>Permohonan Baru</h5>
+                    <h1>Permohonan Baru</h1>
                     <?php if (is_array($forbiddenTypes)): ?>
                         <form method="POST" action="/TranskripRequest/add">
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php endif ?>
                 </div>
                 <div class="callout">
-                    <h5>Histori Permohonan</h5>
+                    <h1>Histori Permohonan</h1>
                     <table class="stack">
                         <thead>
                             <tr>
@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <td><?= $request->answeredMessage ?></td>
                                     <td>
                                         <div class="reveal" id="detail<?= $request->id ?>" data-reveal>
-                                            <h5>Detail Permohonan #<?= $request->id ?></h5>
+                                            <h2>Detail Permohonan #<?= $request->id ?></h2>
                                             <table class="stack">
                                                 <tbody>
                                                     <tr>

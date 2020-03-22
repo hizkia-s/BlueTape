@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
 
             <div class="large-12 column callout">
-                <h5>Tambah Jadwal</h5>
+                <h1>Tambah Jadwal</h1>
                 <div class="large-4 columns">
                     <form method="POST" action="/EntriJadwalDosen/add">
                         <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- ===================================================================== Pembentukan Tabel ============================================================================= -->
 
                 <div class="large-12 column callout">
-                    <h5>Daftar Jadwal</h5>
+                    <h1>Daftar Jadwal</h1>
                     <div class="table-scroll" id="jadwal_table">
                         <table border=1 style="border-color:black ; border-collapse:separate">
                             <tr> 
@@ -169,7 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <button class="close-button" data-close aria-label="Close modal" type="button">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h5> Edit Jadwal </h5>
+                        <h2> Edit Jadwal </h2>
                         <form name="form<?php echo $dataHariIni->id ?>" method="POST" action="/EntriJadwalDosen/update/<?php echo $dataHariIni->id ?>">
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                             <input type="hidden" name="id_jadwal_parameter" value="<?php echo $dataHariIni->id ?>"> </a> <br>

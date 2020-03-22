@@ -12,8 +12,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h5>Permintaan Transkrip</h5>
                 <form method="GET" action="/TranskripManage">
                     <div class="input-group">
-                        <span class="input-group-label">Cari NPM:</span>
-                        <input name="npm" class="input-group-field" type="text" placeholder="2013730013" maxlength="10" minlength="10"<?= $npmQuery === NULL ? '' : " value='$npmQuery'" ?>/>
+                        <label for="npm" class="input-group-label">Cari NPM:</label>
+                        <input id="npm" name="npm" class="input-group-field" type="text" placeholder="2013730013" maxlength="10" minlength="10"<?= $npmQuery === NULL ? '' : " value='$npmQuery'" ?>/>
                         <div class="input-group-button">
                             <input class="button" type="submit" value="Cari"/>
                         </div>

@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <?php $this->load->view('templates/topbar_loggedin'); ?>
         <?php $this->load->view('templates/flashmessage'); ?>
 
-        <div class="row">
+        <div id="mainContent" class="row">
             <div class="callout">
                 <h1>Permintaan Transkrip</h1>
                 <form method="GET" action="/TranskripManage">

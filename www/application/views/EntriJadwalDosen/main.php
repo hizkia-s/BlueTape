@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="large-4 columns">
                             <label for="label_jadwal">Label</label>
                             <input id="label_jadwal" type="text" name="label_jadwal"><br>
+                            <input type="submit" class="button" value="Tambah">
                             </form>
                         </div>
                 </div>

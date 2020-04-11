@@ -183,8 +183,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <form name="form<?php echo $dataHariIni->id ?>" method="POST" action="/EntriJadwalDosen/update/<?php echo $dataHariIni->id ?>">
                             <input type="hidden" name="<?= $this->security->get_csrf_token_name() ?>" value="<?= $this->security->get_csrf_hash() ?>" />
                             <input type="hidden" name="id_jadwal_parameter" value="<?php echo $dataHariIni->id ?>"> </a> <br>
-                            Hari 
-                            <select name="hari"> 
+                            <label for="edit_hari">Hari</label>
+                            <select id="edit_hari" name="hari"> 
                                 <?php
                                 $hariValue = 0;
                                 foreach ($namaHari as $hari) {
@@ -201,8 +201,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 }
                                 ?>
                             </select><br>
-                            Jam Mulai
-                            <select name="jam_mulai"> 
+                            <label for="edit_jam_mulai">Jam Mulai</label>
+                            <select id="edit_jam_mulai" name="jam_mulai"> 
                                 <?php
                                 for ($i = 7; $i <= 16; $i++) {
                                     if ($i == $dataHariIni->jam_mulai) {
@@ -217,8 +217,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 }
                                 ?>
                             </select><br>
-                            Durasi
-                            <select name="durasi"> 
+                            <label for="edit_durasi">Durasi</label>
+                            <select id="edit_durasi" name="durasi"> 
                                 <?php
                                 for ($i = 1; $i <= 9; $i++) {
                                     if ($i == $dataHariIni->durasi) {
@@ -233,13 +233,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 }
                                 ?>
                             </select><br>
-                            Jenis  
-                            <select name="jenis_jadwal"> 
+                            <label for="edit_jenis_jadwal">Jenis</label>
+                            <select id="edit_jenis_jadwal" name="jenis_jadwal"> 
                                 <option style="background-color:yellow" value="konsultasi" <?php if ($dataHariIni->jenis == 'konsultasi') echo "selected"; ?> > Konsultasi </option>
                                 <option style="background-color:green" value="terjadwal" <?php if ($dataHariIni->jenis == 'terjadwal') echo "selected"; ?>> Terjadwal</option>
                                 <option style="background-color:white" value="kelas" <?php if ($dataHariIni->jenis == 'kelas') echo "selected"; ?>> Kelas </option>
                             </select>
-                            Label <input type="text" name="label_jadwal" value="<?php echo $dataHariIni->label; ?>"><br> 
+                            <label for="edit_label_jadwal">Label</label>
+                            <input type="text" id="edit_label_jadwal" name="label_jadwal" value="<?php echo $dataHariIni->label; ?>"><br> 
                            <div class="row large-4 column">
                             <div class="large-2 column">
                                 <input type="submit" name="submitId<?php echo $dataHariIni->id ?>" class="button" value="Save  ">
